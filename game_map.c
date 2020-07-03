@@ -6,6 +6,8 @@
 #define LOCATION_SPAWN 1
 #define LOCATION_X 2
 
+/// \param height file lines count.
+/// \param width file's longest line length.
 static void get_file_dimensions(char* file_name, int* height, int* width) {
     *height = 0;
     *width = 0;
@@ -32,16 +34,21 @@ static void get_file_dimensions(char* file_name, int* height, int* width) {
     fclose(f);
 }
 
-char** load_art_from(char* file_name, int* height, int* width) {
-#define MAX_WIDTH 100
-
+/// Load art from file to 2D array.
+/// Returns file "dimensions" into #height & #width respectively.
+/// \param height file lines count.
+/// \param width file's longest line length.
+/// https://stackoverflow.com/a/36833634/8779245
+char (*load_art_from(char* file_name, int* height, int* width))[ART_MAX_WIDTH] {
     get_file_dimensions(file_name, height, width);
-    char (*lines)[MAX_WIDTH + 1] = malloc(sizeof(char[*height][MAX_WIDTH + 1]));
+
+    // holy shit.
+    char (* lines)[ART_MAX_WIDTH] = malloc(sizeof(char[*height][ART_MAX_WIDTH]));
 
     int i = 0;
     FILE* f = fopen(file_name, "r");
-    while (fgets(lines[i], MAX_WIDTH, f)) {
-        // get rid of ending \n from fgets
+    while (fgets(lines[i], ART_MAX_WIDTH, f)) {
+        // get rid of \n
         lines[i][strlen(lines[i]) - 1] = '\0';
         i++;
     }
