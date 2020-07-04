@@ -10,5 +10,8 @@ all: rpg
 rpg: main.c
 	$(CC) $(CFLAGS) ./*.c -l ncurses -l form -o rpg
 
+run: rpg
+	./rpg
+
 clean:
 	$(RM) rpg
