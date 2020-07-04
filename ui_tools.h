@@ -3,6 +3,8 @@
 
 #endif //RPG_UI_TOOLS_H
 
+void set_boxing(bool value);
+
 int get_center_x(WINDOW* window);
 
 int get_center_y(WINDOW* window);

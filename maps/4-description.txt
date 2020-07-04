@@ -1,0 +1,8 @@
+You fully examined a bottle, but not found anything interesting,
+except a big red label on it, saying 'Schlitz'. You've decided
+to open it. What a stink... you opened a bottle and picked a
+piece of paper from it. The text on paper says:
+NfzP4YCG1Tv86Joik9Nuh/iHcVnngRL8EZdV4YLAw6Cyl/gPYfckI/yKNg==
+Don't know what it means. Anyway, you've put bottle in your
+backpack.
+Actions: go back

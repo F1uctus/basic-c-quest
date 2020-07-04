@@ -6,6 +6,12 @@
 #include "ui_tools.h"
 #include "string_tools.h"
 
+static bool window_boxing = true;
+
+void set_boxing(bool value) {
+    window_boxing = value;
+}
+
 int get_center_x(WINDOW* window) {
     return getmaxx(window) / 2;
 }
@@ -24,13 +30,13 @@ void print_centered_in(WINDOW* parent_window, int y, char* str) {
 
 void clear_window(WINDOW* window) {
     wclear(window);
-    box(window, 0, 0);
+    if (window_boxing) box(window, 0, 0);
     wrefresh(window);
 }
 
 WINDOW* show_window_in(WINDOW* parent_window, int height, int width, int y, int x) {
     WINDOW* window = derwin(parent_window, height, width, y, x);
-    box(window, 0, 0);
+    if (window_boxing) box(window, 0, 0);
     wrefresh(parent_window);
     wrefresh(window);
     return window;
@@ -44,7 +50,7 @@ WINDOW* show_window_fill(WINDOW* parent_window) {
         0,                      // y
         0                       // x
     );
-    box(window, 0, 0);
+    if (window_boxing) box(window, 0, 0);
     wrefresh(parent_window);
     wrefresh(window);
     return window;
@@ -58,7 +64,7 @@ WINDOW* show_window_centered_in(WINDOW* parent_window, int height, int width) {
         get_center_y(parent_window) - height / 2,
         get_center_x(parent_window) - width / 2
     );
-    box(window, 0, 0);
+    if (window_boxing) box(window, 0, 0);
     wrefresh(parent_window);
     wrefresh(window);
     return window;
@@ -75,7 +81,7 @@ WINDOW* show_window_stretched_in(WINDOW* parent_window, int height, int y) {
         y,
         x_margin
     );
-    box(w, 0, 0);
+    if (window_boxing) box(w, 0, 0);
     refresh();
     wrefresh(parent_window);
     wrefresh(w);
@@ -88,7 +94,7 @@ int show_menu_in(WINDOW* parent_window, char** options, int menu_width) {
 
     WINDOW* menu_window = show_window_centered_in(parent_window, options_count, menu_width);
     // draw menu window border
-    box(menu_window, 0, 0);
+    if (window_boxing) box(menu_window, 0, 0);
     // render options; pre-select first option
     char selected_option[menu_width];
     for (int i = 0; i < options_count; i++) {

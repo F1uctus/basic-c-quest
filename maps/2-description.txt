@@ -1,0 +1,8 @@
+You entered, and ended up at the field near the sea.
+In front of you is a great lighthouse, and it seems that
+it has been standing here for a very long time.
+After some wandering in the surroundings you've found and
+picked up a [bottle]. Looks like there is some paper
+inside. At the #left near the field you can see
+some building. At the #right there is an endless sea.
+Actions: inspect bottle; go left; go right
