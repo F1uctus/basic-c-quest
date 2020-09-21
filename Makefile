@@ -5,13 +5,13 @@ RM      = rm -f
 
 default: all
 
-all: rpg
+all: main
 
 rpg: main.c
-	$(CC) $(CFLAGS) ./*.c -l ncurses -l form -o rpg
+	$(CC) $(CFLAGS) ./*.c -l ncurses -l form -o main
 
 run: rpg
-	./rpg
+	./main
 
 clean:
-	$(RM) rpg
+	$(RM) main
