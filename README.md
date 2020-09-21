@@ -1,4 +1,4 @@
-# unnamed-rpg
+# Basic C quest
 I've decided to make a small 1-person "hackathon" for myself to improve my C skills in 3 days, and the result is this "game".
 
 ## Requirements
